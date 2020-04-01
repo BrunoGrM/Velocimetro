@@ -1,0 +1,50 @@
+* {
+	font-family: 'Roboto', sans-serif !important;
+}
+h3 {
+	margin-top: -45px;
+}
+button {
+	outline: 0;
+	background: darkblue;
+	color: white;
+    padding: 15px;
+    border: 0;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 1;
+    cursor: pointer;
+    width: 175px;
+}
+button:hover {
+	opacity: 0.9;
+}
+button:last-child {
+	margin-left: 50px;
+}
+.buttons {
+    margin-top: 30px;
+}
+.info-motor {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	margin-top: 25px;
+}
+.info-motor span:first-child {
+	font-weight: bold;
+	font-size: 20px;
+}
+#motor {
+	width: 150px;
+	font-size: 25px;
+	color: #f62d51;
+}
+.info {
+	display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+	margin-top: 15px;
+	font-size: 20px;
+}

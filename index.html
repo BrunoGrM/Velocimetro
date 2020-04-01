@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 3</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+	<div align="center">
+		<div class="info">
+			<span id="fabricante"></span>
+			<span id="velocidadeMaxima"></span>
+			<span id="voltagem"></span>
+		</div>
+
+		<div class="info-motor">
+			<span>Motor: </span>
+			<span id="motor">DESLIGADO</span>
+		</div>
+		<div class="buttons">
+			<button type="button" id="ligar">Ligar Motor</button>
+			<button type="button" id="desligar">Desligar Motor</button>
+		</div>
+
+		<div id="velocimetro" style="width:100%; height:400px;"></div>
+		<h3>Aperte espaço para acelerar</h3>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/echarts-all.js"></script>
+	<script type="text/javascript" src="js/motor.js"></script>
+	<script type="text/javascript" src="js/velocimetro.js"></script>
+
+	<script type="text/javascript">
+		let motor = new Motor(0, 'Ferrari', 12, false, 300);
+		start();
+
+		function start() {
+			setTimeout(function () {   
+				motor.desacelerar();
+				setVelocidade(motor.verificaVelocidade());
+		      	if(motor.velocidade >= 0) {
+		      		start();
+		      	}     
+		   	}, 100);
+		}
+		
+		document.addEventListener('keydown', function(evento) {
+			var tecla = evento.keyCode;
+			if(tecla == 32) {
+				motor.acelerar();
+				setVelocidade(motor.verificaVelocidade());
+			}
+	   	});
+
+	   	document.querySelector('#ligar').addEventListener('click', function(evento) {
+	   		motor.ligar();
+	   	});
+
+	   	document.querySelector('#desligar').addEventListener('click', function(evento) {
+	   		motor.desligar();
+	   	});
+	</script>
+</body>
+
+</html>
